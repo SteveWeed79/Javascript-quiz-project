@@ -3,54 +3,96 @@
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
+.view {
+    height: 100%;
+}
 
 #header {
     display: flexbox;
     width: 100%;
     text-align: center;
-    font-size: 200%;
+    font-size: 400%;
     margin-top: 4%;
+    color: #3B325C;
 }
 
 
-#titleAcc {
+#header-two {
     display: flexbox;
     width: 100%;
     text-align: center;
     margin-top: 2%;
     margin-bottom: 15%;
+    font-size: 150%;
 }
 
 body {
     display: grid;
 }
 
-.container {
-    grid-template-columns: 10% [col-start] 10% [col-start] 60% [col-start] 10% [col-start] 10% [col-start];
-
+.parent {
+    display: grid;
+    grid-template-columns: 15% repeat(3, 20%) 15%;
+    grid-template-rows: 15% repeat(6, 10%) 15%;
+    grid-column-gap: 2%;
+    grid-row-gap: 2%;
 }
+
+
+.div1 {
+    grid-area: 1 / 1 / 2 / 6;
+}
+
+.div2 {
+    grid-area: 8 / 1 / 9 / 6;
+}
+
+.div3 {
+    grid-area: 3 / 2 / 7 / 4;
+    border: 4px #26165C solid;
+    border-radius: 30px;
+    text-align: center;
+    justify-content: center;
+    padding: 5%;
+    font-size: 125%;
+}
+
+.div4 {
+    grid-area: 3 / 4 / 4 / 5;
+}
+
+.div5 {
+    grid-area: 4 / 4 / 5 / 5;
+}
+
+.div6 {
+    grid-area: 5 / 4 / 6 / 5;
+}
+
+.div7 {
+    grid-area: 6 / 4 / 7 / 5;
+}
+
+.div8 {
+    grid-area: 7 / 3 / 8 / 4;
+}
+
+.timer {
+    color: #927AE1;
+}
+
 
 .button {
-    width: 15%;
-}
-
-.buttonHome {
-    display: flex;
     width: 100%;
-    flex-direction: column;
-    margin-left: 80%;
-
+    height: 100%;
+    border-radius: 12px;
+    background-image: linear-gradient(#5C35DB, #927AE1);
+    color: white;
 }
 
-.footerContainer {
-    display: flexbox;
-    width: 100%;
-}
 
 .footer {
-    flex: 1 0 auto;
     width: 100%;
-
     text-align: right;
     margin-top: 2%;
     color: silver;
