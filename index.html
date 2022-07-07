@@ -5,8 +5,8 @@
     <title>Javascript Quiz</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" type="text/css" href="./assets/style.css" />
-    <link rel="stylesheet" type="text/css" href="./assets/reset.css" />
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="./assets/css/reset.css" />
 </head>
 
 <header class="div1">
@@ -15,7 +15,9 @@
 </header>
 
 <body class="parent">
-    <p class="div3" class="question">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+    <p class="div3" class="question" id="questionPlacement">Lorem Ipsum is simply dummy text of the printing and
+        typesetting
+        industry. Lorem
         Ipsum has been the
         industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled
         it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic
@@ -35,8 +37,14 @@
     <div class="div7">
         <button type="button" class="button" class="div7">test4</button>
     </div>
-    <p class="div8" class="timer">Timer HERE <span> !</span></p>
+    <div class="div9">
+        <p class="timer" class="rightWrong"><span>Correct!</span></p>
+    </div>
+    <p class="div8" class="timer" id="start"><span>Start</span></p>
 
+
+    <script src="./assets/javascript/questions.js"></script>
+    <script src="./assets/javascript/script.js"></script>
 </body>
 
 
