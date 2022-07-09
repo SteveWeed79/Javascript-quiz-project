@@ -70,7 +70,7 @@ function nextQuestion(event) {
 function endGame() {
     var scoreFinal = ((100 * scoreEl) / questions.length);
 
-    questionEl.textContent = 'Enter Initals'
+    questionEl.textContent = 'Enter Initials'
 
     timerEl.textContent = '';
 
@@ -97,8 +97,9 @@ function endGame() {
 
         var FN = document.createElement("input");
         FN.setAttribute("type", "text");
-        FN.setAttribute("name", "Initals");
-        FN.setAttribute("placeholder", "Enter initals");
+        FN.setAttribute("name", "Initials");
+        FN.setAttribute("id", "initialsFrm")
+        FN.setAttribute("placeholder", "Enter initials");
 
         var s = document.createElement("input");
         s.setAttribute("type", "submit");
@@ -107,8 +108,24 @@ function endGame() {
         form.appendChild(FN);
         form.appendChild(s);
         document.getElementById("questionContainer").appendChild(form);
-
     }
+    initialsBtn.addEventListener("click", function (event) {
+        event.preventDefault();
+
+        var iniFinal = document.querySelector("#initialsFrm").value;
+
+
+        if (iniFinal === "") {
+            displayMessage("error", "Initials cannot be blank");
+        } else {
+            displayMessage("success", "Registered successfully");
+
+            localStorage.setItem("initials", iniFinal);
+            localStorage.setItem("score", scoreEl);
+            renderLastRegistered();
+        }
+
+    })
 }
 
 
