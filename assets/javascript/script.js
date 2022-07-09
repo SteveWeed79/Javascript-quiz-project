@@ -11,6 +11,7 @@ var startBtn = document.getElementById("rightWrong")
 var questionEl = document.getElementById("questionContainer")
 var scoreEl = 0;
 var scoreMath = (100 / questions.length);
+var final = [];
 
 function startGame() {
     var startQuiz = document.querySelector("#start");
@@ -92,8 +93,6 @@ function endGame() {
     function createForm() {
 
         var form = document.createElement("form");
-        //form.setAttribute("type", "submit");
-        //form.setAttribute("action", "submit.php");
 
         var FN = document.createElement("input");
         FN.setAttribute("type", "text");
@@ -104,6 +103,7 @@ function endGame() {
         var s = document.createElement("input");
         s.setAttribute("type", "submit");
         s.setAttribute("value", "Submit");
+        s.setAttribute("id", "initialsBtn");
 
         form.appendChild(FN);
         form.appendChild(s);
@@ -112,17 +112,24 @@ function endGame() {
     initialsBtn.addEventListener("click", function (event) {
         event.preventDefault();
 
-        var iniFinal = document.querySelector("#initialsFrm").value;
+        var iniPull = document.querySelector("#initialsFrm").value.trim();
 
 
-        if (iniFinal === "") {
-            displayMessage("error", "Initials cannot be blank");
+        if (iniPull === "") {
+            startBtn.textContent = ("error", "Initials cannot be blank");
         } else {
-            displayMessage("success", "Registered successfully");
 
-            localStorage.setItem("initials", iniFinal);
-            localStorage.setItem("score", scoreEl);
-            renderLastRegistered();
+            console.log("Button Worked!")
+
+            final = [final, scoreEl]
+
+
+            final.push(iniPull);
+
+            localStorage.setItem("final", JSON.stringify(final));
+
+
+
         }
 
     })
