@@ -1,33 +1,23 @@
-var scoreIn = document.querySelector("#listEl");
-var grabIni = localStorage.getItem("final")
-
+var playerName = JSON.parse(localStorage.getItem("playerName"));
+var finalScore = JSON.parse(localStorage.getItem("finalScore"));
+var list = document.getElementById("listEl");
 function renderLastRegistered() {
-    var hold = JSON.parse(grabIni);
-    //var grabScore = localStorage.getItem("score");
-    //var combined = grabIni + "  " + grabScore;
 
+    for (var i = 0; i < playerName.length; i++) {
 
-    console.log(hold)
+        var scores = finalScore[i] + " ";
+        var player = playerName[i];
+        var read = player.concat(scores)
+        var listItem = read.join(' - ');
+        console.log(listItem)
+        var li = document.createElement("li");
+        li.classList.add("div2")
+        li.textContent = listItem;
 
+        document.getElementsByTagName('ul')[0].append(li)
 
-
-    function renderTodos() {
-
-
-        for (var i = 0; i < hold.length; i++) {
-
-            var scores = grabiIni[i];
-
-            var li = document.createElement("li");
-            li.textContent = "combined";
-
-            console.log(combined)
-            scoreIn.appendChild(li);
-        }
     }
-    renderTodos()
 
 }
-
 
 renderLastRegistered()

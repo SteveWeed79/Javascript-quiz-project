@@ -3,8 +3,8 @@ var startQuiz = document.querySelector("#start");
 var btnContainerEl = document.querySelector(".parent")
 var answerButton = [];
 var selectedQuestion = [];
-let qCounter = 0
-var timeLeft = (questions.length * 15);
+var qCounter = 0
+var timeLeft = (questions.length * 10);
 var timeInterval;
 var timerEl = document.getElementById("start")
 var startBtn = document.getElementById("rightWrong")
@@ -12,8 +12,11 @@ var questionEl = document.getElementById("questionContainer")
 var scoreEl = 0;
 var scoreMath = (100 / questions.length);
 var final = [];
+var playerName = [];
+var finalScore = [];
 
 function startGame() {
+
     var startQuiz = document.querySelector("#start");
     countdown()
     pickQuestion()
@@ -69,6 +72,7 @@ function nextQuestion(event) {
     }
 }
 function endGame() {
+
     var scoreFinal = ((100 * scoreEl) / questions.length);
 
     questionEl.textContent = 'Enter Initials'
@@ -112,21 +116,42 @@ function endGame() {
     initialsBtn.addEventListener("click", function (event) {
         event.preventDefault();
 
-        var iniPull = document.querySelector("#initialsFrm").value.trim();
+        var formPull = document.querySelector("#initialsFrm").value.trim();
 
 
-        if (iniPull === "") {
+        if (formPull === "") {
             startBtn.textContent = ("error", "Initials cannot be blank");
         } else {
 
-            console.log("Button Worked!")
 
-            final = [final, scoreEl]
+            playerFetch = [formPull]
+            scoreFetch = [scoreEl + "%"]
+            playerName.push(playerFetch)
+            finalScore.push(scoreFetch)
+
+            //final.push(playerName, finalScore);
+
+            localStorage.setItem("playerName", JSON.stringify(playerName));
+            localStorage.setItem("finalScore", JSON.stringify(finalScore));
+
+            restartGame()
+
+            function restartGame() {
+
+                document.getElementById("questionContainer").textContent = "Press Start below when you are ready to begin.";
+                document.getElementById("buttonOne").textContent = "Let's";
+                document.getElementById("buttonTwo").textContent = "Do";
+                document.getElementById("buttonThree").textContent = "This";
+                document.getElementById("buttonFour").textContent = "Again!";
+                document.getElementById("rightWrong").textContent = "";
+                timerEl.textContent = 'Start';
+                qCounter = 0;
+                scoreEl = 0;
+                timeLeft = (questions.length * 10);
+                startQuiz.addEventListener("click", startGame);
 
 
-            final.push(iniPull);
-
-            localStorage.setItem("final", JSON.stringify(final));
+            }
 
 
 
@@ -138,4 +163,3 @@ function endGame() {
 
 startQuiz.addEventListener("click", startGame);
 
-//document.getElementById("questionPlacement").innerHTML = printQuestion;
